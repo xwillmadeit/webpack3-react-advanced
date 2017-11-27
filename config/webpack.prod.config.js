@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const paths = require('./paths')
+const { cssLoader } = require('./loader')
 
 module.exports = {
   entry: {
@@ -17,7 +18,7 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader',
+            cssLoader,
             {
               loader: 'postcss-loader',
               options: {

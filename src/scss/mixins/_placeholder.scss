@@ -1,0 +1,25 @@
+/** 
+  placeholder 颜色
+*/
+@mixin placeholder-color($color: #8e8e8e) {
+  /* Chrome, Opera, Safari */
+  &::-webkit-input-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+  /* Firefox 19+ */
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+  /* Firefox 18 and below */
+  &:-moz-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+  /* MS IE 10+ */
+  &:-ms-input-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+}

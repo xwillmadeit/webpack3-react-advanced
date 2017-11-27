@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const paths = require('./paths')
+const { cssLoader } = require('./loader')
 
 module.exports = {
   entry: {
@@ -12,7 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.s?css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', cssLoader, 'sass-loader']
       }
     ]
   },

@@ -1,0 +1,15 @@
+/** 
+  文字溢出省略
+*/
+@mixin text-truncate($multi: false) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @if ($multi) {
+    display: -webkit-box;
+    -webkit-line-clamp: $multi;
+    -webkit-box-orient: vertical;
+  } @else {
+    white-space: nowrap;
+  }
+}

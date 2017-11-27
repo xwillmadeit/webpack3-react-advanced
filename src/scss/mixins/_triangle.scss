@@ -1,0 +1,45 @@
+@function opposite-direction($directions) {
+  $opposite-directions: ();
+  $direction-map: (
+    'top': 'bottom',
+    'right': 'left',
+    'bottom': 'top',
+    'left': 'right',
+    'center': 'center',
+    'ltr': 'rtl',
+    'rtl': 'ltr'
+  );
+
+  @each $direction in $directions {
+    $direction: to-lower-case($direction);
+
+    @if map-has-key($direction-map, $direction) {
+      $opposite-directions: append(
+        $opposite-directions,
+        unquote(map-get($direction-map, $direction))
+      );
+    } @else {
+      @warn "No opposite direction can be found for `#{$direction}`. Direction omitted.";
+    }
+  }
+
+  @return $opposite-directions;
+}
+
+/**
+  三角形
+*/
+@mixin triangle($direction: top, $size: 10px, $color: red) {
+  width: 0;
+  height: 0;
+
+  border-#{opposite-direction($direction)}: $size solid $color;
+
+  @if ($direction == top or $direction == bottom) {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+  } @else if ($direction == left or $direction == right) {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+  }
+}
