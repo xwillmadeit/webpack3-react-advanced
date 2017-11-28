@@ -1,4 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const paths = require('./paths')
 
@@ -15,7 +14,7 @@ module.exports = {
         include: paths.appSrc
       },
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: paths.appModules,
         use: 'babel-loader'
       },
@@ -29,13 +28,11 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.ProgressPlugin(),
-    new HtmlWebpackPlugin({
-      template: paths.appIndexHtml
-    })
-  ],
+  plugins: [new webpack.ProgressPlugin()],
   resolve: {
+    // 如果不在 extensions 数组指定后缀，引入时必须写全后缀
+    // https://webpack.js.org/configuration/resolve/#resolve-extensions
+    extensions: ['.js', '.json', '.jsx', '.css', '.scss'],
     alias: {
       '@components': paths.appComponents,
       '@utils': paths.appUtils
