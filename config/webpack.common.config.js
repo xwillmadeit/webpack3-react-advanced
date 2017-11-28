@@ -34,5 +34,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: paths.appIndexHtml
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@components': paths.appComponents,
+      '@utils': paths.appUtils
+    }
+  }
 }
