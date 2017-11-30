@@ -35,7 +35,7 @@ module.exports = {
     extensions: ['.js', '.json', '.jsx', '.css', '.scss'],
     alias: {
       '@components': paths.appComponents,
-      '@utils': paths.appUtils
+      '@util': paths.appUtil
     }
   }
 }

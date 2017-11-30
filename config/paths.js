@@ -6,7 +6,7 @@ module.exports = {
   appIndexJs: resolveApp('src/index.js'),
   appSrc: resolveApp('src'),
   appComponents: resolveApp('src/components'),
-  appUtils: resolveApp('src/utils'),
+  appUtil: resolveApp('src/util'),
   appModules: resolveApp('node_modules'),
   appBuild: resolveApp('build'),
   appHtml: resolveApp('src/index.html')
